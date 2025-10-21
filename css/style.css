@@ -1,0 +1,146 @@
+/* Базовые вещи */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; color: #222; background: #fff; }
+
+/* Верхнее меню (только меню по центру, синий — активный) */
+.topnav {
+  padding: 10px 0 0;   /* верх/низ почти без зазора */
+  margin: 0;             /* убираем возможный внешний отступ */
+  border-bottom: 0;      /* без разделителей */
+}
+
+.topnav__list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0 12px;
+  max-width: none;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+.topnav__item a {
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #222;
+  background: transparent;
+  line-height: 1;
+  font-size: 15px;
+}
+.topnav__item--active a { background: #66aeea; color: #fff; }
+
+/* Синяя полоса с логотипом и поиском справа */
+.brandbar { background: #66aeea; }
+.brandbar__inner {
+  margin: 0;
+  max-width: none;
+  width: 100%;
+  padding: 10px 16px;                /* без внутренних отступов по бокам */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* слева логотип, справа поиск */
+}
+
+.brandbar__logo { color: #fff; font-weight: 700; font-size: 18px; }
+.brandbar__search { display: inline-flex; gap: 6px; align-items: center; }
+.brandbar__search input { padding: 6px 8px; font-size: 14px; width: 220px; }
+.brandbar__search button {
+  padding: 7px 10px;
+  font-size: 14px;
+  background: #2077c4;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Контейнер страницы */
+.page { max-width: none; width: 80%; margin: 16px auto; padding: 0 12px; }
+
+/* Галерея 4 колонки, 2 ряда — высокие слева и справа = две средние */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 12vw); /* две строки одинаковой высоты */
+  gap: 14px;
+}
+
+.cell { overflow: hidden; border-radius: 4px; height: 100%; }
+.cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.cell--tall-left  { grid-column: 1; grid-row: 1 / span 2; }
+.cell--mid-top    { grid-column: 2; grid-row: 1; }
+.cell--mid-bottom { grid-column: 2; grid-row: 2; }
+.cell--mid2-top   { grid-column: 3; grid-row: 1; }
+.cell--mid2-bottom{ grid-column: 3; grid-row: 2; }
+.cell--tall-right { grid-column: 4; grid-row: 1 / span 2; }
+
+
+/* Ряд карточек сверху: средние шире, между ними пустое место */
+.cards { display: flex; gap: 20px; margin: 20px 0; }
+.cards--top .card { flex: 0 0 220px; }          /* узкие: 1‑я и 4‑я */
+.cards--top .card--wide { flex: 1 1 0; }        /* широкие: 2‑я и 3‑я */
+.cards__spacer { flex: 0 0 40px; }              /* пустой промежуток между 2 и 3 */
+
+/* Карточка */
+.card {
+  border: 1px solid #d7dde5;
+  padding: 12px 12px 10px;
+  border-radius: 4px;
+  background: #fff;
+  text-align: left;
+}
+.card__pic { width: 92px; height: 92px; object-fit: cover; display: inline-block; }
+.card__title { margin: 8px 0 4px; font-size: 16px; }
+.card__text { margin: 0; font-size: 14px; color: #333; }
+
+/* Нижний ряд: синий блок + боковые карточки на одном уровне снизу */
+.feature-row {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+  min-height: 40vh;
+  align-items: flex-end; /* общий нижний край */
+}
+
+.card--side {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end; /* фиксируем снизу, не растягиваем */
+}
+
+
+/* Большой синий блок */
+.feature {
+  flex: 1 1 0;
+  background: #bfe0ff;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.feature__title { text-align: center; margin: 0 0 12px; font-size: 20px; }
+/* Имитация строк текста */
+.feature__lines {
+  flex: 0 0 180px;
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(0,0,0,0.12) 1px, transparent 1px, transparent 13px);
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+/* Картинка сжимается, чтобы освободить место */
+.feature__image {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  flex: 1 1 auto;                  /* занимает всё оставшееся, сжимается по высоте */
+  display: flex;
+}
+.feature__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Кнопка внизу справа, без наложения */
+.feature__more { align-self: flex-end; margin-top: 10px; text-decoration: none; color: #1a68a8; font-size: 14px; }
+
+/* Футер */
+.footer { text-align: center; color: #333; padding: 18px 12px 26px; font-size: 14px; }
