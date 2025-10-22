@@ -1,14 +1,12 @@
-/* Базовые вещи */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body { font-family: Arial, sans-serif; color: #222; background: #fff; }
 
-/* Верхнее меню (только меню по центру, синий — активный) */
 .topnav {
   padding: 10px 0 0;
   margin: 0;
   border-bottom: 0;
-  text-align: center; /* Центрируем меню */
+  text-align: center; 
 }
 
 .topnav__list {
@@ -17,12 +15,12 @@ body { font-family: Arial, sans-serif; color: #222; background: #fff; }
   padding: 0 12px;
   max-width: none;
   width: 90%;
-  font-size: 0; /* Убираем пробелы между inline-block элементами */
+  font-size: 0; 
 }
 
 .topnav__item {
   display: inline-block;
-  margin: 0 9px; /* Заменяем gap: 18px */
+  margin: 0 9px; 
 }
 
 .topnav__item a {
@@ -37,14 +35,13 @@ body { font-family: Arial, sans-serif; color: #222; background: #fff; }
 
 .topnav__item--active a { background: #66aeea; color: #fff; }
 
-/* Синяя полоса с логотипом и поиском справа */
 .brandbar { background: #66aeea; }
 .brandbar__inner {
   margin: 0;
   max-width: none;
   width: 100%;
   padding: 10px 16px;
-  overflow: hidden; /* Создаем контекст для float */
+  overflow: hidden; 
 }
 
 .brandbar__logo {
@@ -53,11 +50,11 @@ body { font-family: Arial, sans-serif; color: #222; background: #fff; }
   font-size: 18px;
   float: left;
   margin: 0;
-  line-height: 30px; /* Примерно как высота input + padding */
+  line-height: 30px; 
 }
 
 .brandbar__search {
-  float: right; /* Поиск справа */
+  float: right; 
 }
 
 .brandbar__search input { padding: 6px 8px; font-size: 14px; width: 220px; }
@@ -70,23 +67,21 @@ body { font-family: Arial, sans-serif; color: #222; background: #fff; }
   cursor: pointer;
 }
 
-/* Контейнер страницы */
 .page { max-width: none; width: 90%; margin: 16px auto; padding: 0 12px; }
 
-/* Галерея 4 колонки, 2 ряда — высокие слева и справа = две средние */
 .gallery {
-  overflow: hidden; /* Создаем контекст для float */
-  margin: 0 -7px; /* Компенсируем margin ячеек */
+  overflow: hidden; 
+  margin: 0 -7px;
 }
 
 .column {
   float: left;
-  width: 25%; /* 4 колонки */
-  padding: 0 7px; /* Половина от gap: 14px */
+  width: 25%;
+  padding: 0 7px; 
 }
 
 .column-tall {
-  height: calc(24vw + 14px); /* 2 строки по 12vw + gap */
+  height: calc(24vw + 14px);
 }
 
 .column-mid .cell {
@@ -107,55 +102,54 @@ body { font-family: Arial, sans-serif; color: #222; background: #fff; }
 .cell img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
-/* Ряд карточек сверху: средние шире, между ними пустое место */
 .cards {
-  overflow: hidden; /* Создаем контекст для float */
+  overflow: hidden; 
   margin: 20px 0;
 }
 
 .cards--top .card {
   float: left;
-  margin-right: 20px;
-  height: 200px; /* Фиксированная высота для всех карточек в этом ряду */
+  margin-right: 1%;
+  height: 25vh;
+  text-align: center;
 }
 
 .cards--top .card--narrow {
-  width: 220px;
+  width: 17.5%;
 }
 
 .cards--top .card--wide {
-  width: calc((100% - 560px) / 2); /* 560px = 220+220+40+80(4 gap по 20px) */
+  width: 29.5%;
 }
 
 .cards__spacer {
+  width: 2%;
   float: left;
-  width: 40px;
   height: 1px;
-  margin-right: 20px;
+  margin-right: 1%;
 }
 
 .cards--top .card:last-child {
   margin-right: 0;
-  /* Убрали float: right! Оставляем float: left от общего правила */
 }
 
-/* Карточка */
 .card {
   border: 1px solid #d7dde5;
   padding: 12px 12px 10px;
   border-radius: 4px;
   background: #fff;
-  text-align: left;
+  text-align: center;
 }
 
 .card__pic {
-  width: 92px;
-  height: 92px;
-  object-fit: cover;
+  width: 40%;
+  height: auto; 
+  max-width: 120px; 
+  object-fit: contain;
   display: inline-block;
 }
 
@@ -170,12 +164,11 @@ body { font-family: Arial, sans-serif; color: #222; background: #fff; }
   color: #333;
 }
 
-/* Нижний ряд: синий блок + боковые карточки на одном уровне снизу */
 .feature-row {
   margin: 20px 0;
   min-height: 40vh;
-  text-align: justify; /* Для распределения элементов */
-  font-size: 0; /* Убираем пробелы между inline-block */
+  text-align: justify; 
+  font-size: 0; 
 }
 
 .feature-row::after {
@@ -186,25 +179,22 @@ body { font-family: Arial, sans-serif; color: #222; background: #fff; }
 }
 
 .card--side {
-  width: 240px;
+  width: 18%;
   display: inline-block;
-  vertical-align: bottom; /* Выравнивание по низу */
-  font-size: 14px; /* Возвращаем размер шрифта */
+  vertical-align: bottom;
+  font-size: 14px;
 }
 
-
-
-/* Большой синий блок */
 .feature {
-  width: calc(100% - 520px); /* 100% - 240px - 240px - 40px(gaps) */
-  margin: 0 20px;
+  width: 56%; 
+  margin: 0 2%;
   display: inline-block;
-  vertical-align: bottom; /* Выравнивание по низу */
+  vertical-align: bottom;
   background: #bfe0ff;
   border-radius: 12px;
   padding: 20px;
   min-height: 200px;
-  font-size: 14px; /* Возвращаем размер шрифта */
+  font-size: 14px;
 }
 
 .feature__title {
@@ -217,13 +207,13 @@ body { font-family: Arial, sans-serif; color: #222; background: #fff; }
   background: #ffffff;
   border-radius: 10px;
   padding: 10px;
-  height: calc(100% - 50px); /* Занимает оставшееся пространство */
+  height: calc(100% - 50px);
 }
 
 .feature__image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -236,16 +226,14 @@ body { font-family: Arial, sans-serif; color: #222; background: #fff; }
   font-size: 14px;
 }
 
-/* Футер */
 .footer {
   text-align: center;
   color: #333;
   padding: 18px 12px 26px;
   font-size: 14px;
-  clear: both; /* Сбрасываем float */
+  clear: both; 
 }
 
-/* Clearfix для контейнеров с float */
 .clearfix::after {
   content: "";
   display: table;
